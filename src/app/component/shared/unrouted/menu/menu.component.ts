@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
+isLogged: boolean = false;
+admin: any;
+loggedUser: any;
 
 }
