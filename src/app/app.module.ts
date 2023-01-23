@@ -13,7 +13,7 @@ import { SearchUnroutedComponent } from './component/shared/unrouted/search-unro
 import { TipousuarioFinderComponent } from './component/shared/unrouted/tipousuario-finder/tipousuario-finder.component';
 import { UsuarioFinderComponent } from './component/shared/unrouted/usuario-finder/usuario-finder.component';
 import { MenuComponent } from './component/shared/unrouted/menu/menu.component';
-import { UsuarioPlistAdminComponent } from './component/application/routed/admin/usuario-plist-admin/usuario-plist-admin.component';
+import { UsuarioPlistAdminRoutedComponent } from './component/application/routed/admin/usuario-plist-admin/usuario-plist-admin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { UsuarioPlistAdminComponent } from './component/application/routed/admin
     SearchUnroutedComponent,
     TipousuarioFinderComponent,
     UsuarioFinderComponent,
-    UsuarioPlistAdminComponent
+    UsuarioPlistAdminRoutedComponent
 
   ],
   imports: [

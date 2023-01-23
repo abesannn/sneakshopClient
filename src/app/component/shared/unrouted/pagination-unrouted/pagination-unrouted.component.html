@@ -1,1 +1,7 @@
-<p>pagination-unrouted works!</p>
+<nav aria-label="pagination">
+    <ul class="pagination">
+      <li class="page-item" aria-current="page" *ngFor="let p of aPaginationBar" [ngClass]="{'active': (_nPage+'' == p)}">
+        <a class="page-link" (click)="_nPage=(+p);doJumpToPage()" href="#">{{p}}</a>
+      </li>
+    </ul>
+  </nav>

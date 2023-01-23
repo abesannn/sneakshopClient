@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsuarioPlistAdminComponent } from './usuario-plist-admin.component';
+import { UsuarioPlistAdminRoutedComponent } from './usuario-plist-admin.component';
 
 describe('UsuarioPlistAdminComponent', () => {
-  let component: UsuarioPlistAdminComponent;
-  let fixture: ComponentFixture<UsuarioPlistAdminComponent>;
+  let component: UsuarioPlistAdminRoutedComponent;
+  let fixture: ComponentFixture<UsuarioPlistAdminRoutedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsuarioPlistAdminComponent ]
+      declarations: [ UsuarioPlistAdminRoutedComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UsuarioPlistAdminComponent);
+    fixture = TestBed.createComponent(UsuarioPlistAdminRoutedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* tslint:disable:no-unused-variable */
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 import { PaginationUnroutedComponent } from './pagination-unrouted.component';
 
@@ -6,12 +9,14 @@ describe('PaginationUnroutedComponent', () => {
   let component: PaginationUnroutedComponent;
   let fixture: ComponentFixture<PaginationUnroutedComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
       declarations: [ PaginationUnroutedComponent ]
     })
     .compileComponents();
+  }));
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(PaginationUnroutedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
