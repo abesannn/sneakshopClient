@@ -20,6 +20,12 @@ export class EmitEvent {
 })
 
 export class SessionService {
+    checkSession() {
+      throw new Error('Method not implemented.');
+    }
+    reload() {
+      throw new Error('Method not implemented.');
+    }
 
     private entityURL = '/session';
     sURL: string = `${baseURL}${this.entityURL}`;

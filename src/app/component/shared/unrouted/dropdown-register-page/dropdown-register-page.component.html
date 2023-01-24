@@ -1,1 +1,14 @@
-<p>dropdown-register-page works!</p>
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Registros por página: {{RPP}}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" (click)="onChangeRpp(5)">5</a></li>
+      <li><a class="dropdown-item" (click)="onChangeRpp(10)">10</a></li>
+      <li><a class="dropdown-item" (click)="onChangeRpp(50)">50</a></li>
+      <li><a class="dropdown-item" (click)="onChangeRpp(100)">100</a></li>
+      <li><a class="dropdown-item" (click)="onChangeRpp(1000)">1000</a></li>
+    </ul>
+  </div>
+  

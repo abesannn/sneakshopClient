@@ -3,7 +3,9 @@ import { FormControl } from "@angular/forms";
 import { IEntity } from "./generic-types-interface";
 
 export interface IUsuario {
-tipousuario: any;
+    type: string;
+    dni: any;
+    tipousuario: any;
     nombre:          number;
     apellido1:        string;
     apellido2:     string;

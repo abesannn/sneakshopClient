@@ -1,10 +1,10 @@
 <form>
   <div class="input-group input-group-sm">
-    <div class="input-group-prepend">
-      <span class="input-group-text"> <i [ngClass]="oMetadataService.getIcon('filter')"></i></span>
-    </div>
-    <input type="text" class="form-control" placeholder="{{strTitlePlural}}" placeholder="Search"
-      (keyup)="onKeyUpFilter($event)" [(ngModel)]="strFilter" name="buscar" aria-label="Small"
-      aria-describedby="inputGroup-sizing-sm" />
+
+    <input type="text" class="form-control" placeholder="{{placeHolder}}"
+    [(ngModel)]="termino" name="buscar" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+    (keyup) =" buscar()"
+    />
+
   </div>
 </form>

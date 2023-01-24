@@ -1,36 +1,22 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
-import { MetadataService } from 'src/app/service/metadata.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-unrouted',
   templateUrl: './search-unrouted.component.html',
   styleUrls: ['./search-unrouted.component.css']
 })
+export class SearchUnroutedComponent {
 
-export class SearchUnroutedComponent implements OnInit {
+  @Input() termino: string = "";
+  @Input() placeHolder: string = "";
+  @Output() onSearch = new EventEmitter<string>();
 
-  @Input() strFilter: string = "";
-  @Input() strTitlePlural: string = "";
-  @Output() eeFilter = new EventEmitter<string>();
 
-  subjectFilter = new Subject();
+  constructor( ) { }
 
-  constructor(
-    public oMetadataService: MetadataService
-  ) { }
-
-  ngOnInit() {
-    this.subjectFilter.pipe(
-      debounceTime(1000)
-    ).subscribe(() => {
-      this.eeFilter.emit(this.strFilter);
-    });
+  buscar(): void {
+    setTimeout( () =>{
+      this.onSearch.emit(this.termino);
+    }, 1000)
   }
-
-  onKeyUpFilter(_event: KeyboardEvent): void {
-    this.subjectFilter.next();
-  }
-
 }
