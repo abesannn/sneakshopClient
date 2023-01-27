@@ -2,11 +2,21 @@
 import { FormControl } from "@angular/forms";
 import { IEntity } from "./generic-types-interface";
 
+export interface IUsuarioBean {
+    nombre: string;
+    password: number;
+}
+
+export interface IUsuarioBean2Form {
+    nombre: FormControl<string>;
+    password: FormControl<string>;
+}
+
 export interface IUsuario {
     type: string;
     dni: any;
     tipousuario: any;
-    nombre:          number;
+    nombre:          string;
     apellido1:        string;
     apellido2:     string;
     login:      string;
@@ -16,21 +26,20 @@ export interface IUsuario {
 
 export interface IUsuario2Form {
     id:          FormControl<number>;
-    name:        FormControl<string>;
-    surname:     FormControl<string>;
-    lastname:    FormControl<string>;
+    nombre:        FormControl<string>;
+    apellido1:     FormControl<string>;
+    apellido2:    FormControl<string>;
     email:       FormControl<string>;
-    username:    FormControl<string>;
-    id_team:        FormControl<number>;
-    id_usertype:    FormControl<number>;
+    login:    FormControl<string>;
+    id_tipousuario:        FormControl<number>;
 }
 export interface IUsuario2Send {
     id:          number;
-    name:        string;
-    surname:     string;
-    lastname:    string;
+    nombre:        string;
+    apellido1:     string;
+    apellido2:    string;
     email:       string;
-    username:    string;
-    team:        IEntity;
-    usertype:    IEntity;
+    login:    string;
+    tipousuario:        IEntity;
+
 }

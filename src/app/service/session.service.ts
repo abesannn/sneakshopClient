@@ -1,92 +1,65 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { filter, map, Observable, Subject } from 'rxjs';
-import { CryptoService } from './crypto.service';
-import { DecodeService } from './decode.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Observable, Subject, catchError, retry, tap, throwError } from 'rxjs';
 import { baseURL, httpOptions } from 'src/environments/environment';
-import { IToken } from '../model/token-interface';
+import { environment } from 'src/environments/environment.prod';
 
-export enum Events {
-    login,
-    logout
-}
+import { IUsuario, IUsuarioBean } from '../model/usuario-interface';
 
-export class EmitEvent {
-    constructor(public event: Events, public token?: string) { }
-}
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
 export class SessionService {
-    checkSession() {
-      throw new Error('Method not implemented.');
+
+  private entityURL = '/session';
+  url: string = `${baseURL}${this.entityURL}`;
+  subject = new Subject<void>();
+
+  constructor(
+    private http: HttpClient,
+
+  ) { }
+
+  login(loginData: IUsuarioBean): Observable<IUsuario> {
+    if (environment) console.log("SessionService: login");
+    return this.http.post<IUsuario>(this.url, loginData, httpOptions).pipe(
+      tap((u: IUsuario) => console.log("session.service login HTTP request executed", u)),
+      retry(1),
+      catchError(this.handleError));
+  }
+
+
+  checkSession(): Observable<IUsuario> {
+    return this.http.get<IUsuario>(this.url, httpOptions);
+  }
+
+
+  logout(): Observable<String> {
+    if (environment) console.log("SessionService: logout");
+    return this.http.delete<String>(this.url, httpOptions).pipe(
+      retry(1),
+      catchError(this.handleError));
+  }
+
+
+  reload() {
+    this.subject.next();
+  }
+
+
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Unknown error!';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side errors
+      errorMessage = `Error: ${error.error.message}`;
+      if (environment) console.log("SessionService: error: " + errorMessage);
+    } else {
+      // Server-side errors
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      if (environment) console.log("SessionService: error: " + errorMessage);
     }
-    reload() {
-      throw new Error('Method not implemented.');
-    }
-
-    private entityURL = '/session';
-    sURL: string = `${baseURL}${this.entityURL}`;
-    subject = new Subject<EmitEvent>();
-
-    constructor(
-        private oCryptoService: CryptoService,
-        private oHttpClient: HttpClient,
-        private oDecodeService: DecodeService
-    ) { }
-
-    login(strLogin: string, strPassword: string): Observable<string> {
-        const loginData = JSON.stringify({ username: strLogin, password: this.oCryptoService.getSHA256(strPassword) });
-        return this.oHttpClient.post<string>(this.sURL, loginData, httpOptions);
-    }
-
-    getUserName(): string {
-        if (!this.isSessionActive()) {
-            return "";
-        } else {
-            let token: string = localStorage.getItem("token");
-            return this.oDecodeService.parseJwt(token).name;
-        }
-    }
-
-    getToken(): string {
-        return localStorage.getItem("token");
-    }
-
-    isSessionActive(): Boolean {
-        let strToken: string = localStorage.getItem("token");
-        if (strToken) {            
-            let oDecodedToken: IToken = this.oDecodeService.parseJwt(strToken);
-            if (Date.now() >= oDecodedToken.exp * 1000) {
-                return false;
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    logout() {
-        localStorage.removeItem("token");
-    }
-
-    on(event: Events): Observable<String> {
-        return this.subject.pipe(
-            filter((e: EmitEvent) => {
-                return e.event === event;
-            }),
-            map((e: EmitEvent) => {
-                return e.token;
-            })
-        )
-    }
-
-    emit(event: EmitEvent) {
-        this.subject.next(event);
-    }
-
+    return throwError(errorMessage);
+  }
 }
-

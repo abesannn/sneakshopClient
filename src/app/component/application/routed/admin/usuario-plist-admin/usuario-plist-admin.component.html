@@ -18,8 +18,8 @@
       </div>
       <div class="col-md text-start">
         <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
-        <button class="btn btn-outline-danger" *ngIf="id_usertypeFilter!=0" (click)="setFilterByTipousuario(0)">
-          <i class="bi bi-x-circle"></i> Reset tipousuario {{id_usertypeFilter}} filter</button>
+        <button class="btn btn-outline-danger" *ngIf="id_tipousuarioFilter!=0" (click)="setFilterByTipousuario(0)">
+          <i class="bi bi-x-circle"></i> Reset tipousuario {{id_tipousuarioFilter}} filter</button>
       </div>
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer?.totalElements}}</h5>

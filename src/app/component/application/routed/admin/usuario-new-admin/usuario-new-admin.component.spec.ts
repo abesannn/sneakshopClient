@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { UsuarioDetailAdminUnroutedComponent } from './usuario-detail-admin-unrouted.component';
+import { UsuarioNewAdminComponent } from './usuario-new-admin.component';
 
-describe('UsuarioDetailAdminUnroutedComponent', () => {
-  let component: UsuarioDetailAdminUnroutedComponent;
-  let fixture: ComponentFixture<UsuarioDetailAdminUnroutedComponent>;
+describe('UsuarioNewAdminComponent', () => {
+  let component: UsuarioNewAdminComponent;
+  let fixture: ComponentFixture<UsuarioNewAdminComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UsuarioDetailAdminUnroutedComponent ]
+      declarations: [ UsuarioNewAdminComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UsuarioDetailAdminUnroutedComponent);
+    fixture = TestBed.createComponent(UsuarioNewAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

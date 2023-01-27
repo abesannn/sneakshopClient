@@ -40,7 +40,7 @@ export class UsuarioService {
       }
 
     }
-    return this.oHttp.get<IPage<IUsuario>>("http://localhost:8082/user", { withCredentials: true,params: params });
+    return this.oHttp.get<IPage<IUsuario>>(this.url, { withCredentials: true,params: params });
   }
 
   getOne(id: number): Observable<IUsuario> {

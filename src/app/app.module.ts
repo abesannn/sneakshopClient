@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,11 +16,13 @@ import { SearchUnroutedComponent } from './component/shared/unrouted/search-unro
 import { TipousuarioFinderComponent } from './component/shared/unrouted/tipousuario-finder/tipousuario-finder.component';
 import { UsuarioFinderComponent } from './component/shared/unrouted/usuario-finder/usuario-finder.component';
 import { MenuComponent } from './component/shared/unrouted/menu/menu.component';
-import { UsuarioPlistAdminRoutedComponent } from './component/application/routed/admin/usuario-plist-admin/usuario-plist-admin.component';
+import { UsuarioPlistAdminComponent } from './component/application/routed/admin/usuario-plist-admin/usuario-plist-admin.component';
 import { PaginationService } from './service/pagination.service';
 import { UsuarioService } from './service/usuario.service';
 import { UsuarioDetailAdminUnroutedComponent } from './component/application/unrouted/admin/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted.component';
 import { usuarioViewAdminRoutedComponent } from './component/application/routed/admin/usuario-view-admin-routed/usuario-view-admin-routed.component';
+import { UsuarioNewAdminComponent } from './component/application/routed/admin/usuario-new-admin/usuario-new-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -33,9 +36,10 @@ import { usuarioViewAdminRoutedComponent } from './component/application/routed/
     SearchUnroutedComponent,
     TipousuarioFinderComponent,
     UsuarioFinderComponent,
-    UsuarioPlistAdminRoutedComponent,
+    UsuarioPlistAdminComponent,
     usuarioViewAdminRoutedComponent,
     UsuarioDetailAdminUnroutedComponent,
+    UsuarioNewAdminComponent,
 
 
   ],
@@ -43,7 +47,9 @@ import { usuarioViewAdminRoutedComponent } from './component/application/routed/
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
+
   ],
   providers: [
     PaginationService,
