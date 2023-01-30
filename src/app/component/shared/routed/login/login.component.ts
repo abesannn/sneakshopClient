@@ -17,8 +17,8 @@ export class LoginComponent {
   UsuarioBean: IUsuarioBean;
   UsuarioBeanForm: IUsuarioBean2Form;
   formularioLogin: FormGroup<IUsuarioBean2Form>;
-  lengthNombre: number = 10;
-  minLengthPassword: number = 10;
+  lengthNombre: number = 0;
+  minLengthPassword: number = 0;
 
   constructor(
     private oRouter: Router,
@@ -28,14 +28,7 @@ export class LoginComponent {
     private formularioLoginBuilder: FormBuilder
   ) { 
     oSessionService.reload();
-    oSessionService.checkSession().subscribe({
-      next: (data: any) => {
-
-      },
-      error: (error: any) => {
-      }
-        // this.oRouter.navigate(['/login']);
-    })
+    
     this.UsuarioBean = {} as IUsuarioBean;
     this.UsuarioBeanForm = {} as IUsuarioBean2Form;
     this.formularioLogin = {} as FormGroup<IUsuarioBean2Form>;
@@ -43,7 +36,7 @@ export class LoginComponent {
 
   ngOnInit (){
     this.formularioLogin = <FormGroup>this.formularioLoginBuilder.group({
-      nombre: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15), Validators.pattern('([a-z]|[A-Z]|[0-9])[0-9]{7}([a-z]|[A-Z]|[0-9])')]],
+      nombre: ['', [ Validators.minLength(1), Validators.maxLength(15)]],
       password: ['', [Validators.minLength(this.minLengthPassword)]]
     });
   }
@@ -55,7 +48,7 @@ export class LoginComponent {
     if (this.formularioLogin.valid) {
       this.oSessionService.login(this.UsuarioBean).subscribe({
         next: (data: IUsuario) => {
-          localStorage.setItem('User', JSON.stringify(data));
+          localStorage.setItem('Usuario', JSON.stringify(data));
           this.oRouter.navigate(['']);
         },
         error: (error: any) => {

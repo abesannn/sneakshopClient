@@ -64,7 +64,7 @@ export class UsuarioNewAdminComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       apellido1: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       apellido2: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
-      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      email: ['', [Validators.required, Validators.pattern]],
       login: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       id_tipousuario: ['', [Validators.required]]
   });
