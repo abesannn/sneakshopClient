@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { baseURL } from "src/environments/environment";
 
 import { IPage } from "../model/generic";
-import { ITipousuario } from "../model/tipousuario-interface";
+import { ITipousuario, ITipousuario2Send } from "../model/tipousuario-interface";
 
 
 @Injectable({
@@ -39,5 +39,9 @@ import { ITipousuario } from "../model/tipousuario-interface";
     }
     getOne(id: number): Observable<ITipousuario> {
         return this.oHttp.get<ITipousuario>(`${baseURL}${this.entityURL}` + "/" + id,{withCredentials:true});
+      }
+
+      updateOne(oTipousuario2Send: ITipousuario2Send): Observable<number> {
+        return this.oHttp.put<number>(this.url, oTipousuario2Send, { withCredentials: true });
       }
   }

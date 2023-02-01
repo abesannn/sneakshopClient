@@ -1,1 +1,44 @@
-<p>tipousuario-finder works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mb-5">Listado de Tipo Usuario</h1>
+            <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
+                <app-search-unrouted [placeHolder]="'Buscar tipousuario'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+                <app-dropdown-register-page class="mx-2" [PageSize]="this.getPageRegister()" (eeRpp)="this.setRpp($event)">
+                </app-dropdown-register-page>
+        </div>
+        <div class="col-md text-center">
+            <app-pagination-unrouted [nPage]="getPageNumber() + 1" [nTotalPages]="this.getPagesCount()"
+                (eePage)="setPage($event)"></app-pagination-unrouted>
+        </div>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th (click)="setOrder('id')">ID
+
+                    </th>
+                    <th (click)="setOrder('nombre')">Nombre
+                    </th>
+                <th>Usuarios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tipousuario of this.getPlistContent()">
+                    <td>{{tipousuario.id}}</td>
+                    <td>{{tipousuario.nombre}}</td>
+                    <td>{{tipousuario.usuarios}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Herramientas">
+                            <button class="btn btn-sm btn-primary" (click)="selectionTipousuario(tipousuario.id)">
+                              Seleccionar
+                            </button>
+                             </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+                
