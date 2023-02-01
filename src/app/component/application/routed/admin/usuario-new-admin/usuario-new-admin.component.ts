@@ -79,6 +79,7 @@ export class UsuarioNewAdminComponent implements OnInit {
       apellido2: this.oForm.value.apellido2,
       email: this.oForm.value.email,
       login: this.oForm.value.login,
+      password: this.oForm.value.password,
       tipousuario: { id: 2 }
     }
     if (this.oForm.valid) {

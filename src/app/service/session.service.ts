@@ -22,13 +22,13 @@ export class SessionService {
 
   ) { }
 
-  login(loginData: IUsuarioBean): Observable<IUsuario> {
+  login(loginData: String): Observable<String> {
     if (environment) console.log("SessionService: login");
-    return this.http.post<IUsuario>(this.url, loginData, httpOptions).pipe(
-      tap((u: IUsuario) => console.log("session.service login HTTP request executed", u)),
+    return this.http.post<String>(this.url, loginData, httpOptions).pipe(
+      tap((u: String) => console.log("session.service login HTTP request executed", u)),
       retry(1),
       catchError(this.handleError));
-  }
+    }
 
 
   checkSession(): Observable<IUsuario> {

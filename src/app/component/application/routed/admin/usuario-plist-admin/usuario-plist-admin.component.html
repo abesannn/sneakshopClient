@@ -6,8 +6,8 @@
         <a [routerLink]="['/admin/usuario/new']" class="btn btn-success mx-3">Alta de usuario</a>
         <app-search-unrouted [placeHolder]="'Buscar usuario'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer?.numberOfElements"
-        (eeRpp)="this.setRpp($event)">
-      </app-dropdown-register-page>
+          (eeRpp)="this.setRpp($event)">
+        </app-dropdown-register-page>
       </div>
       <div class="col-md d-flex">
         <app-pagination-unrouted [nPage]="responseFromServer?.number + 1" [nTotalPages]="responseFromServer?.totalPages"
@@ -27,7 +27,7 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th (click)="setOrder('id')" >ID
+            <th (click)="setOrder('id')">ID
               <span *ngIf="sortField=='id'&&sortDirection=='asc'">🔼</span>
               <span *ngIf="sortField=='id'&&sortDirection=='desc'">🔽</span>
             </th>
@@ -47,10 +47,17 @@
               <span *ngIf="sortField=='email'&&sortDirection=='asc'">🔼</span>
               <span *ngIf="sortField=='email'&&sortDirection=='desc'">🔽</span>
             </th>
-            <th (click)="setOrder('tipousuario')">Tipo
+            <th (click)="setOrder('login')">login
+              <span *ngIf="sortField=='login'&&sortDirection=='asc'">🔼</span>
+              <span *ngIf="sortField=='login'&&sortDirection=='desc'">🔽</span>
+            </th>
+            <th (click)="setOrder('password')">password
+              <span *ngIf="sortField=='password'&&sortDirection=='asc'">🔼</span>
+              <span *ngIf="sortField=='password'&&sortDirection=='desc'">🔽</span>
+            </th>
+            <th (click)="setOrder('tipousuario')">Tipo de usuario
               <span *ngIf="sortField=='tipousuario'&&sortDirection=='asc'">🔼</span>
               <span *ngIf="sortField=='tipousuario'&&sortDirection=='desc'">🔽</span>
-            </th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -61,10 +68,12 @@
             <td>{{usuario.apellido1}}</td>
             <td>{{usuario.apellido2}}</td>
             <td>{{usuario.email}}</td>
-            <td (click)="setFilterByTipousuario(usuario.id)">
-              {{usuario.tipousuario.id}} ({{usuario.tipousuario.nombre}})</td>
+            <td>{{usuario.login}}</td>
+            <td>{{usuario.password}}</td>
+            <td (click)="setFilterByTipousuario(usuario.tipousuario.id)">
+              {{usuario.tipousuario.id}} ({{usuario.tipousuario.nombre}})
             <td>
-              <div class="btn-group "  role="group" aria-label="Herramientas">
+              <div class="btn-group " role="group" aria-label="Herramientas">
                 <button class="btn btn-sm btn-info" [routerLink]="['/admin/user/view',usuario.id]">
                   <i class="bi bi-eye-fill"></i>
                 </button>

@@ -8,7 +8,7 @@ import { UsuarioNewAdminComponent } from './component/application/routed/admin/u
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent, title: 'Login'},
   { path: 'admin/usuario/plist', component: UsuarioPlistAdminComponent, title: 'Plist usuarios'},
   { path: 'admin/usuario/view/:id', component: usuarioViewAdminRoutedComponent, title: 'Vista usuario'},

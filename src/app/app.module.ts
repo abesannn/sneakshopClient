@@ -22,6 +22,7 @@ import { UsuarioService } from './service/usuario.service';
 import { UsuarioDetailAdminUnroutedComponent } from './component/application/unrouted/admin/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted.component';
 import { usuarioViewAdminRoutedComponent } from './component/application/routed/admin/usuario-view-admin-routed/usuario-view-admin-routed.component';
 import { UsuarioNewAdminComponent } from './component/application/routed/admin/usuario-new-admin/usuario-new-admin.component';
+import { CryptoService } from './service/crypto.service';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { UsuarioNewAdminComponent } from './component/application/routed/admin/u
   ],
   providers: [
     PaginationService,
-    UsuarioService
+    UsuarioService,
+    CryptoService,
   ],
   bootstrap: [AppComponent]
 })

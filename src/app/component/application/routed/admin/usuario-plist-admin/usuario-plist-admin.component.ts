@@ -29,15 +29,12 @@ export class UsuarioPlistAdminComponent implements OnInit {
     private oRouter: Router
 
     ) {
-    this.oAuthService.checkSession().subscribe({
-        next: (data: any) => {
-
-        this.getPage();
-      },
-      error:(error:any) => {
-        this.oRouter.navigate(['/login']);
-      }
-    })
+      oAuthService.checkSession().subscribe({
+        next: (data: any) => {},
+        error: (error: any) => {
+          this.oRouter.navigate(['/login']);
+        },
+      });
 
   }
 
