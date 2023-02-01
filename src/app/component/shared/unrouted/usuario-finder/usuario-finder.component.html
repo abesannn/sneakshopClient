@@ -1,1 +1,63 @@
-<p>usuario-finder works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center" mb-5>Listado de Usuarios</h1>
+            <div class="col-md text-end d-flex justify-content-center align-items mb-3">
+                <a [routerLink]="['/admin/usuario/new']" class="btn btn-success mx-3">Alta de Usuario</a>
+                <app-search-unrouted [placeHolder]="'Buscar Usuario'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+                <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"
+                (eeRpp)="this.setRpp($event)">
+            </app-dropdown-register-page>
+            </div>
+            <div class="col-md">
+                <app-pagination-unrouted [nPage]="responseFromServer?.number + 1" [nTotalPages]="responseFromServer?.totalPages"
+                (eePage)="setPage($event)"></app-pagination-unrouted>
+            </div>
+            <div class="col-md text-start">
+                <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear) </h5>
+                <button class="btn btn-outline-danger" *ngIf="id_tipousuarioFilter!=0" (click)="setFilterByTipoUsuario(0)">
+                    <i class="bi bi-x-circle"></i> Reset TipoUsuario {{id_tipousuarioFilter}} filter</button>
+            </div>
+        </div>
+        <div class="col-md text-end">
+          <h5 class="text-muted">Total de registros en la consulta {{responseFromServer?.totalElements}}</h5>
+        </div>
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th (click)="setOrder('id')">ID
+                <div *ngIf="sortField=='id'&&sortDirection=='asc'">^</div>
+                <div *ngIf="sortField=='id'&&sortDirection=='desc'">_</div>
+              </th>
+              <th (click)="setOrder('nombre')">Nombre
+                <div *ngIf="sortField=='nombre'&&sortDirection=='asc'">^</div>
+                <div *ngIf="sortField=='nombre'&&sortDirection=='desc'">_</div>
+              </th>
+              <th (click)="setOrder('apellido1')">Apellido 1</th>
+              <th (click)="setOrder('apellido2')">Apellido 2</th>
+              <th (click)="setOrder('email')">Email</th>
+              <th (click)="setOrder('login')">Login</th>
+  
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of responseFromServer.content">
+              <td>{{usuario.id}}</td>
+              <td>{{usuario.nombre}}</td>
+              <td>{{usuario.apellido1}}</td>
+              <td>{{usuario.apellido2}}</td>
+              <td>{{usuario.email}}</td>
+              <td>{{usuario.login}}</td>
+  
+              <td>
+                <div class="btn-group" role="group" aria-label="Herramientas">
+                  <a class="btn btn-primary" (click)="seleccionarId(usuario.id)">Seleccionar</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+ 

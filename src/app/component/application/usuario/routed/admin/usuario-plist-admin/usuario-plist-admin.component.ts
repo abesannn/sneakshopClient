@@ -39,12 +39,14 @@ export class UsuarioPlistAdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getPage();
   }
 
   getPage() {
     this.oUsuarioService.getUsuarioPlist(this.page, this.numberOfElements, this.strTermFilter, this.sortField, this.sortDirection, this.id_tipousuarioFilter)
     .subscribe({
       next: (resp: IPage<IUsuario>) => {
+        console.log(resp)
         this.responseFromServer = resp;
         console.log(resp);
           if (this.page > resp.totalPages - 1) {

@@ -13,7 +13,7 @@ import { IUsuario, IUsuario2Send } from '../model/usuario-interface';
 })
 export class UsuarioService {
 
-  private entityURL = '/user';
+  private entityURL = '/usuario';
   url: string = ""
 
   constructor(

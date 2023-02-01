@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Lista de usuarios</h1>
+      <h1 class="text-center mb-5">Lista de Usuarios</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
         <a [routerLink]="['/admin/usuario/new']" class="btn btn-success mx-3">Alta de usuario</a>
         <app-search-unrouted [placeHolder]="'Buscar usuario'" (onSearch)="setFilter( $event )"></app-search-unrouted>
@@ -14,12 +14,12 @@
           (eePage)="setPage($event)"></app-pagination-unrouted>
       </div>
       <div class="d-flex justify-content-end mb-2 ">
-        <button class="btn btn-success" (click)="generateUsuario()">Generate</button>
+        <button class="btn btn-success" (click)="generateUsuario()">Generar</button>
       </div>
       <div class="col-md text-start">
         <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
         <button class="btn btn-outline-danger" *ngIf="id_tipousuarioFilter!=0" (click)="setFilterByTipousuario(0)">
-          <i class="bi bi-x-circle"></i> Reset tipousuario {{id_tipousuarioFilter}} filter</button>
+          <i class="bi bi-x-circle"></i> Reiniciar tipousuario {{id_tipousuarioFilter}} filter</button>
       </div>
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer?.totalElements}}</h5>
@@ -51,10 +51,6 @@
               <span *ngIf="sortField=='login'&&sortDirection=='asc'">🔼</span>
               <span *ngIf="sortField=='login'&&sortDirection=='desc'">🔽</span>
             </th>
-            <th (click)="setOrder('password')">password
-              <span *ngIf="sortField=='password'&&sortDirection=='asc'">🔼</span>
-              <span *ngIf="sortField=='password'&&sortDirection=='desc'">🔽</span>
-            </th>
             <th (click)="setOrder('tipousuario')">Tipo de usuario
               <span *ngIf="sortField=='tipousuario'&&sortDirection=='asc'">🔼</span>
               <span *ngIf="sortField=='tipousuario'&&sortDirection=='desc'">🔽</span>
@@ -69,12 +65,10 @@
             <td>{{usuario.apellido2}}</td>
             <td>{{usuario.email}}</td>
             <td>{{usuario.login}}</td>
-            <td>{{usuario.password}}</td>
-            <td (click)="setFilterByTipousuario(usuario.tipousuario.id)">
-              {{usuario.tipousuario.id}} ({{usuario.tipousuario.nombre}})
+            <td (click)="setFilterByTipousuario(usuario.tipoUsuario.id)"></td>
             <td>
               <div class="btn-group " role="group" aria-label="Herramientas">
-                <button class="btn btn-sm btn-info" [routerLink]="['/admin/user/view',usuario.id]">
+                <button class="btn btn-sm btn-info" [routerLink]="['/admin/usuario/view',usuario.id]">
                   <i class="bi bi-eye-fill"></i>
                 </button>
                 <button class="btn btn-sm btn-secondary" [routerLink]="['/admin/usuario/edit',usuario.id]">

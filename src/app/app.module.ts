@@ -16,13 +16,15 @@ import { SearchUnroutedComponent } from './component/shared/unrouted/search-unro
 import { TipousuarioFinderComponent } from './component/shared/unrouted/tipousuario-finder/tipousuario-finder.component';
 import { UsuarioFinderComponent } from './component/shared/unrouted/usuario-finder/usuario-finder.component';
 import { MenuComponent } from './component/shared/unrouted/menu/menu.component';
-import { UsuarioPlistAdminComponent } from './component/application/routed/admin/usuario-plist-admin/usuario-plist-admin.component';
 import { PaginationService } from './service/pagination.service';
 import { UsuarioService } from './service/usuario.service';
-import { UsuarioDetailAdminUnroutedComponent } from './component/application/unrouted/admin/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted.component';
-import { usuarioViewAdminRoutedComponent } from './component/application/routed/admin/usuario-view-admin-routed/usuario-view-admin-routed.component';
-import { UsuarioNewAdminComponent } from './component/application/routed/admin/usuario-new-admin/usuario-new-admin.component';
 import { CryptoService } from './service/crypto.service';
+import { UsuarioNewAdminComponent } from './component/application/usuario/routed/admin/usuario-new-admin/usuario-new-admin.component';
+import { UsuarioPlistAdminComponent } from './component/application/usuario/routed/admin/usuario-plist-admin/usuario-plist-admin.component';
+import { usuarioViewAdminRoutedComponent } from './component/application/usuario/routed/admin/usuario-view-admin-routed/usuario-view-admin-routed.component';
+import { UsuarioDetailAdminUnroutedComponent } from './component/application/usuario/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted.component';
+import { UsuarioRemoveAdminComponent } from './component/application/usuario/routed/admin/usuario-remove-admin/usuario-remove-admin.component';
+import { UsuarioEditAdminComponent } from './component/application/usuario/routed/admin/usuario-edit-admin/usuario-edit-admin.component';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { CryptoService } from './service/crypto.service';
     usuarioViewAdminRoutedComponent,
     UsuarioDetailAdminUnroutedComponent,
     UsuarioNewAdminComponent,
+    UsuarioRemoveAdminComponent,
+    UsuarioEditAdminComponent,
 
 
   ],

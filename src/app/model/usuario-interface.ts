@@ -21,7 +21,7 @@ export interface IUsuario {
     login: string;
     password: string;
     email: string;
-    tipousuario: ITipousuario;
+    tipoUsuario: ITipousuario;
 }
 
 export interface IUsuario2Form {
