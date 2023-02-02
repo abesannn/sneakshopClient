@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ITipousuario } from 'src/app/model/tipousuario-interface';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-tipousuario-view-admin',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TipousuarioViewAdminComponent implements OnInit {
 
-  constructor() { }
+  id: number = 0;
+  oTipousuario: ITipousuario = null;
 
-  ngOnInit() {
+
+  constructor(
+    private oActivatedRoute: ActivatedRoute,
+    private oAuthService: SessionService,
+    private oRouter: Router,
+  ) {
+    oAuthService.reload();
+    oAuthService.checkSession().subscribe({
+      next: (data: any) => {
+
+      },
+      error: (error: any) => {
+        this.oRouter.navigate(['/login']);
+      }
+    })
+
+    this.id = oActivatedRoute.snapshot.params['id'];
+   }
+
+  ngOnInit(): void {
   }
 
 }

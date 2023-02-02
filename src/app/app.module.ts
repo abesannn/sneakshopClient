@@ -25,7 +25,12 @@ import { usuarioViewAdminRoutedComponent } from './component/application/usuario
 import { UsuarioDetailAdminUnroutedComponent } from './component/application/usuario/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted.component';
 import { UsuarioRemoveAdminComponent } from './component/application/usuario/routed/admin/usuario-remove-admin/usuario-remove-admin.component';
 import { UsuarioEditAdminComponent } from './component/application/usuario/routed/admin/usuario-edit-admin/usuario-edit-admin.component';
-
+import { TipousuarioPlistAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-plist-admin/tipousuario-plist-admin.component';
+import { TipousuarioNewAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-new-admin/tipousuario-new-admin.component';
+import { TipousuarioDetailAdminUnroutedComponent } from './component/application/tipousuario/unrouted/tipousuario-detail-admin-unrouted/tipousuario-detail-admin-unrouted.component';
+import { TipousuarioRemoveAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-remove-admin/tipousuario-remove-admin.component';
+import { TipousuarioViewAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-view-admin/tipousuario-view-admin.component';
+import { TipousuarioEditAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-edit-admin/tipousuario-edit-admin.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +50,12 @@ import { UsuarioEditAdminComponent } from './component/application/usuario/route
     UsuarioNewAdminComponent,
     UsuarioRemoveAdminComponent,
     UsuarioEditAdminComponent,
+    TipousuarioPlistAdminComponent,
+    TipousuarioNewAdminComponent,
+    TipousuarioDetailAdminUnroutedComponent,
+    TipousuarioRemoveAdminComponent,
+    TipousuarioViewAdminComponent,
+    TipousuarioEditAdminComponent
 
 
   ],

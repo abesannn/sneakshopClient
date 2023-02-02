@@ -3,7 +3,7 @@
     <div class="col">
       <h1 class="text-center mb-5">Lista de Usuarios</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
-        <a [routerLink]="['/admin/usuario/new']" class="btn btn-success mx-3">Alta de usuario</a>
+        <a [routerLink]="['/admin/usuario/new']" class="btn btn-success mx-3">Alta de Usuario</a>
         <app-search-unrouted [placeHolder]="'Buscar usuario'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer?.numberOfElements"
           (eeRpp)="this.setRpp($event)">

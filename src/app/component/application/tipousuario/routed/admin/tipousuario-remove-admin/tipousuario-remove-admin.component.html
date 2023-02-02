@@ -1,3 +1,23 @@
-<p>
-  tipousuario-remove-admin works!
-</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mb-5">🔽Borrado del tipousuario con id {{id}}🔽</h1>
+            <app-tipousuario-detail-admin-unrouted [id]="id"></app-tipousuario-detail-admin-unrouted>
+            <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
+                <div class="col-md-5 control-group text-center">
+                    <div class="alert alert-danger my-3" role="alert">
+                        <h3>¿Está seguro de que desea eliminar el tipousuario?</h3>
+                        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center my-4">
+                          <a class="btn btn-danger mx-2" (click)="oLocation.back()">
+                            NO </a>
+                      <a class="btn btn-success mx-2" (click)="removeOne()" (click)="oLocation.back()">
+                            SI</a>
+  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

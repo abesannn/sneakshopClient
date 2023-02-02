@@ -8,7 +8,11 @@ import { UsuarioPlistAdminComponent } from './component/application/usuario/rout
 import { usuarioViewAdminRoutedComponent } from './component/application/usuario/routed/admin/usuario-view-admin-routed/usuario-view-admin-routed.component';
 import { UsuarioRemoveAdminComponent } from './component/application/usuario/routed/admin/usuario-remove-admin/usuario-remove-admin.component';
 import { UsuarioEditAdminComponent } from './component/application/usuario/routed/admin/usuario-edit-admin/usuario-edit-admin.component';
-
+import { TipousuarioPlistAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-plist-admin/tipousuario-plist-admin.component';
+import { TipousuarioNewAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-new-admin/tipousuario-new-admin.component';
+import { TipousuarioRemoveAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-remove-admin/tipousuario-remove-admin.component';
+import { TipousuarioViewAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-view-admin/tipousuario-view-admin.component';
+import { TipousuarioEditAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-edit-admin/tipousuario-edit-admin.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,10 +23,11 @@ const routes: Routes = [
   { path: 'admin/usuario/new', component: UsuarioNewAdminComponent, title: 'Nuevo usuario'},
   { path: 'admin/usuario/edit/:id', component: UsuarioEditAdminComponent, title: 'Editar usuario'},
   { path: 'logout', component: LogoutComponent},
-
-
-
-
+  { path: 'admin/tipousuario/plist', component: TipousuarioPlistAdminComponent, title: 'Plist tipos de usuario'},
+  { path: 'admin/tipousuario/new', component: TipousuarioNewAdminComponent, title: 'Nuevo tipo de usuario'},
+  { path: 'admin/tipousuario/remove/:id', component: TipousuarioRemoveAdminComponent, title: 'Eliminar tipo de usuario'},
+  { path: 'admin/tipousuario/view/:id', component: TipousuarioViewAdminComponent, title: 'Vista tipo de usuario'},
+  { path: 'admin/tipousuario/edit/:id', component: TipousuarioEditAdminComponent, title: 'Editar tipo de usuario'},
 ];
 
 @NgModule({

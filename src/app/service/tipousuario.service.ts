@@ -37,11 +37,19 @@ import { ITipousuario, ITipousuario2Send } from "../model/tipousuario-interface"
 
       return this.oHttp.get<IPage<ITipousuario>>(this.url,{withCredentials:true, params: params});
     }
-    getOne(id: number): Observable<ITipousuario> {
+      getOne(id: number): Observable<ITipousuario> {
         return this.oHttp.get<ITipousuario>(`${baseURL}${this.entityURL}` + "/" + id,{withCredentials:true});
       }
 
       updateOne(oTipousuario2Send: ITipousuario2Send): Observable<number> {
         return this.oHttp.put<number>(this.url, oTipousuario2Send, { withCredentials: true });
+      }
+
+      newOne(oTipousuario2Send: ITipousuario2Send): Observable<number> {
+        return this.oHttp.post<number>(this.url, oTipousuario2Send, { withCredentials: true });
+      }
+
+      removeOne(id: number): Observable<number> {
+        return this.oHttp.delete<number>(this.url + '/' + id, { withCredentials: true });
       }
   }

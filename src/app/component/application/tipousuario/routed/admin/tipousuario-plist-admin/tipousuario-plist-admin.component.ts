@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { IPage } from 'src/app/model/generic-types-interface';
 import { ITipousuario, ITipousuario2Form, ITipousuario2Send } from 'src/app/model/tipousuario-interface';
 import { SessionService } from 'src/app/service/session.service';
 import { TipousuarioService } from 'src/app/service/tipousuario.service';
@@ -12,93 +13,74 @@ import { TipousuarioService } from 'src/app/service/tipousuario.service';
 })
 export class TipousuarioPlistAdminComponent implements OnInit {
 
-  id: number = 0;
-  oTipousuario: ITipousuario = null;
-  oTipousuario2Form: ITipousuario2Form = null;
-  oTipousuario2Send: ITipousuario2Send = null;
-  oForm: FormGroup<ITipousuario2Form>;
+  responseFromServer: IPage<ITipousuario>;
+  //
+  strTermFilter: string = "";
+  numberOfElements: number = 5;
+  page: number = 0;
+  sortField: string = "";
+  sortDirection: string = "";
 
-  // modal
-    mimodal: string = 'miModal';
-    myModal: any;
-    modalTitle: string = '';
-    modalContent: string = '';
-
-
-  
   constructor(
-    private oRouter: Router,
-    private oActivatedRoute: ActivatedRoute,
     private oTipousuarioService: TipousuarioService,
-    private oFormBuilder: FormBuilder,
-    private oAuthService: SessionService
-  ) { 
-    this.oForm = <FormGroup>this.oFormBuilder.group({
-      id: ['', [Validators.required]],
-      nombre: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(1),
-          Validators.maxLength(200),
-        ],
-      ],
-    });
-    oAuthService.reload();
-    oAuthService.checkSession().subscribe({
-      next: (data: any) => {},
-      error: (error: any) => {
-        this.oRouter.navigate(['/login']);
-      },
-    });
+    private oAuthService: SessionService,
+    private oSessionService: SessionService,
+    private oRouter: Router
+  ) {
+    this.oAuthService.checkSession().subscribe({
+      next: (data: any) => {
 
-    this.id = oActivatedRoute.snapshot.params['id'];
-  }
-
-  ngOnInit() {
-    this.getOne();
-  }
-
-  getOne() {
-    this.oTipousuarioService.getOne(this.id).subscribe({
-      next: (data: ITipousuario) => {
-        this.oTipousuario = data;
-
-        console.log(data);
-
-        this.oForm = <FormGroup>this.oFormBuilder.group({
-          id: [data.id, [Validators.required]],
-          nombre: [
-            data.nombre,
-            [
-              Validators.required,
-              Validators.minLength(1),
-              Validators.maxLength(10),
-            ],
-          ],
-        });
-      },
-    });
-
-    onSubmit() {
-      console.log('onSubmit');
-  
-      this.oTipousuario2Send = {
-        id: this.oForm.value.id,
-        nombre: this.oForm.value.nombre
-  
-      };
-  
-      if (this.oForm.valid) {
-        this.oTipousuarioService.updateOne(this.oTipousuario2Send).subscribe({
-          next: (data: number) => {
-            //open bootstrap modal here
-            this.modalTitle = 'SNEAKSHOP';
-            this.modalContent = 'Tipousuario ' + this.id + ' updated';
-            this.oRouter.navigate(['/admin/tipousuario/view', this.id]);
-          },
-        });
-      }
+      this.getPage();
+    },
+    error:(error:any) => {
+      this.oRouter.navigate(['/login']);
     }
+  })
   }
+
+  ngOnInit(): void {
+  }
+
+
+  getPage() {
+    this.oTipousuarioService.getTipousuarioPlist(this.page, this.numberOfElements, this.strTermFilter, this.sortField, this.sortDirection)
+    .subscribe({
+      next: (resp: IPage<ITipousuario>) => {
+        this.responseFromServer = resp;
+        console.log(resp);
+          if (this.page > resp.totalPages - 1) {
+            this.page = resp.totalPages - 1;
+          }
+        },
+
+      })
+  }
+
+  setPage(e: number) {
+    this.page = (e - 1);
+    this.getPage();
+  }
+
+  setRpp(rpp: number) {
+    this.numberOfElements = rpp;
+    this.setPage(1);
+    this.getPage();
+  }
+
+  setFilter(term: string): void {
+    this.strTermFilter = term;
+    this.getPage();
+  }
+
+
+  setOrder(order: string): void {
+    this.sortField = order;
+    if (this.sortDirection == "asc") {
+      this.sortDirection = "desc";
+    } else {
+      this.sortDirection = "asc";
+    }
+    this.getPage();
+  }
+
 }
