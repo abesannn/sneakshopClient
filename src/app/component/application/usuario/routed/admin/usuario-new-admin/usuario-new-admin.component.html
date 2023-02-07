@@ -13,26 +13,31 @@
         </div>
 
  
-        <div class="mb-3-row">
+
+        <div class="mb-3 row">
           <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-4 has-validation">
-            <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.nombre?.dirty && !oForm.controls.nombre?.['required'] &&
-            oForm.controls.nombre?.dirty && !oForm.controls.nombre.errors?.['minlength']
-            && oForm.controls.nombre?.dirty && !oForm.controls.nombre.errors?.['maxlength'],
-            'is-invalid' : oForm.controls.nombre?.dirty && oForm.controls.nombre.errors?.['minlength']
-            ||  oForm.controls.nombre?.dirty &&  oForm.controls.nombre.errors?.['maxlength'] ||  
-            oForm.controls.nombre?.dirty &&  oForm.controls.nombre.errors?.['required']}" id="inputnombre"
-            formControlName="nombre">
-            <div id="inputNombreFeedback" class="invalid-feedback">
-              *ngIf="oForm.controls.nombre?.dirty && oForm.controls.nombre.errors?.['minlength']">
-              El nombre debe tener al menos 5 caracteres.
+            <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.nombre?.dirty && !oForm.controls.nombre.errors?.['required'] &&
+              oForm.controls.nombre?.dirty && !oForm.controls.nombre.errors?.['minlength'] 
+                && oForm.controls.nombre?.dirty && !oForm.controls.nombre.errors?.['maxlength'],
+                'is-invalid' :  oForm.controls.nombre?.dirty &&  oForm.controls.nombre.errors?.['minlength'] 
+                ||  oForm.controls.nombre?.dirty &&  oForm.controls.nombre.errors?.['maxlength'] ||
+                oForm.controls.nombre?.dirty &&  oForm.controls.nombre.errors?.['required']}" id="inputnombre"
+                formControlName="nombre">
+              <div id="inputNombreFeedback" class="invalid-feedback"
+                *ngIf="oForm.controls.nombre?.dirty &&  oForm.controls.nombre.errors?.['minlength']">
+                El apellido debe tener al menos 5 caracteres.
+              </div>  
+              <div id="inputNombreFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.nombre?.dirty &&  oForm.controls.nombre.errors?.['maxlength']">
+              La longitud máxima es de 10 caracteres.
             </div>
             <div id="inputNombreFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.nombre?.dirty &&  oForm.controls.nombre.errors?.['required']">
-              Este campo es obligatorio.
-            </div>
-          </div>
+              El campo es obligatorio.
         </div>
+      </div>
+    </div>
 
 
         <div class="mb-3 row">
@@ -128,8 +133,7 @@
           *ngIf="oForm.controls.login?.dirty &&  oForm.controls.login.errors?.['required']">
           El campo es obligatorio.
         </div>
-
-
+</div>
         <div class="mb-3 row">
           <label for="inputTipousuario" class="col-sm-2 col-form-label">Tipousuario</label>
           <div class="col-sm-6 has-validation">
@@ -155,10 +159,16 @@
             </div>
           </div>
         </div>
+        
 
         <button type="submit" class="btn btn-primary"
         [disabled]="!oForm?.dirty || (oForm.invalid && oForm?.dirty)">Guardar</button>
 
+
+    </div>
+  </form>
+  </div>
+</div>
 
 
         <div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -198,3 +208,4 @@
     </div>
   </div>
 </div>
+

@@ -13,6 +13,13 @@ import { TipousuarioNewAdminComponent } from './component/application/tipousuari
 import { TipousuarioRemoveAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-remove-admin/tipousuario-remove-admin.component';
 import { TipousuarioViewAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-view-admin/tipousuario-view-admin.component';
 import { TipousuarioEditAdminComponent } from './component/application/tipousuario/routed/admin/tipousuario-edit-admin/tipousuario-edit-admin.component';
+import { TipoproductoEditAdminComponent } from './component/application/tipoproducto/routed/admin/tipoproducto-edit-admin/tipoproducto-edit-admin.component';
+import { TipoproductoNewAdminComponent } from './component/application/tipoproducto/routed/admin/tipoproducto-new-admin/tipoproducto-new-admin.component';
+import { TipoproductoPlistAdminComponent } from './component/application/tipoproducto/routed/admin/tipoproducto-plist-admin/tipoproducto-plist-admin.component';
+import { TipoproductoRemoveAdminComponent } from './component/application/tipoproducto/routed/admin/tipoproducto-remove-admin/tipoproducto-remove-admin.component';
+import { TipoproductoViewAdminComponent } from './component/application/tipoproducto/routed/admin/tipoproducto-view-admin/tipoproducto-view-admin.component';
+import { ProductoPlistAdminComponent } from './component/application/producto/routed/admin/producto-plist-admin/producto-plist-admin.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -28,6 +35,13 @@ const routes: Routes = [
   { path: 'admin/tipousuario/remove/:id', component: TipousuarioRemoveAdminComponent, title: 'Eliminar tipo de usuario'},
   { path: 'admin/tipousuario/view/:id', component: TipousuarioViewAdminComponent, title: 'Vista tipo de usuario'},
   { path: 'admin/tipousuario/edit/:id', component: TipousuarioEditAdminComponent, title: 'Editar tipo de usuario'},
+  { path: 'admin/tipoproducto/plist', component: TipoproductoPlistAdminComponent, title: 'Plist tipos de producto'},
+  { path: 'admin/tipoproducto/new', component: TipoproductoNewAdminComponent, title: 'Nuevo tipo de producto'},
+  { path: 'admin/tipoproducto/remove/:id', component: TipoproductoRemoveAdminComponent, title: 'Eliminar tipo de producto'},
+  { path: 'admin/tipoproducto/view/:id', component: TipoproductoViewAdminComponent, title: 'Vista tipo de producto'},
+  { path: 'admin/tipoproducto/edit/:id', component: TipoproductoEditAdminComponent, title: 'Editar tipo de producto'},
+  { path: 'admin/producto/plist', component: ProductoPlistAdminComponent, title: 'Plist productos'},
+  
 ];
 
 @NgModule({

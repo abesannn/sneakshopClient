@@ -1,0 +1,61 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center mb-5 text-decoration-underline">Listado de TipoProducto</h1>
+        <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
+          <a [routerLink]="['/admin/tipoproducto/new']" class="btn btn-success mx-3">Añadir TipoProducto</a>
+          <app-search-unrouted [placeHolder]="'Buscar'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+          <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer?.numberOfElements"
+          (eeRpp)="this.setRpp($event)">
+        </app-dropdown-register-page>
+        </div>
+        <div class="col-md d-flex">
+          <app-pagination-unrouted [nPage]="responseFromServer?.number + 1" [nTotalPages]="responseFromServer?.totalPages"
+            (eePage)="setPage($event)"></app-pagination-unrouted>
+        </div>
+        <div class="col-md text-end">
+          <h5 class="text-muted">Total de registros en la consulta {{responseFromServer?.totalElements}}</h5>
+        </div>
+        <table class="table table-bordered table-striped table-hover">
+          <thead class="table table-sm">
+            <tr>
+              <th (click)="setOrder('id')" >ID
+                <span *ngIf="sortField=='id'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='id'&&sortDirection=='desc'">🔽</span>
+              </th>
+              <th (click)="setOrder('nombre')">Nombre
+                <span *ngIf="sortField=='nombre'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='nombre'&&sortDirection=='desc'">🔽</span>
+              </th>
+              <th (click)="setOrder('productos')">Productos
+                <span *ngIf="sortField=='productos'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='productos'&&sortDirection=='desc'">🔽</span>
+              </th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tipoproducto of responseFromServer?.content">
+              <td>{{tipoproducto.id}} </td>
+              <td>{{tipoproducto.nombre}}</td>
+              <td>{{tipoproducto.productos}}</td>
+              <td>
+                <div class="btn-group "  role="group" aria-label="Herramientas">
+                  <button class="btn btn-sm btn-info" [routerLink]="['/admin/tipoproducto/view',tipoproducto.id]">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                  <button class="btn btn-sm btn-secondary" [routerLink]="['/admin/tipoproducto/edit',tipoproducto.id]">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-sm btn-danger" [routerLink]="['/admin/tipoproducto/remove',tipoproducto.id]">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

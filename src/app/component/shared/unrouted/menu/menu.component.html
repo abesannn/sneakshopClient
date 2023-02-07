@@ -9,17 +9,22 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="home">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="strTipousuario=='1'">
             <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['admin/usuario/plist']">Usuario</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['login']">Login</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['/admin/tipoproducto/plist']">TipoProducto</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['/admin/tipousuario/plist']">TipoUsuario</a>
           <!-- <li class="nav-item">
             <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['/admin/user/plist']">Usuarios</a>
           </li> -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['/admin/producto/plist']">Productos</a>
         </ul>
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">

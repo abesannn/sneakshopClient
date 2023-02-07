@@ -60,7 +60,7 @@ export class UsuarioService {
   }
 
   generate(): Observable<IUsuario> {
-    return this.oHttp.post<IUsuario>(this.url + "/generate", null, { withCredentials: true });
+    return this.oHttp.post<IUsuario>(this.url + "/generate/3", { withCredentials: true });
   }
 
 }

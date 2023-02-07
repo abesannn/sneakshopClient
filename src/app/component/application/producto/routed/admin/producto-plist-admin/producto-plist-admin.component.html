@@ -1,0 +1,88 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center mb-5 text-decoration-underline">Listado de Productos</h1>
+        <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
+          <a [routerLink]="['/admin/producto/new']" class="btn btn-success mx-3">Añadir Producto</a>
+          <app-search-unrouted [placeHolder]="'Buscar producto'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+          <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer?.numberOfElements"
+          (eeRpp)="this.setRpp($event)">
+        </app-dropdown-register-page>
+        </div>
+        <div class="col-md d-flex">
+          <app-pagination-unrouted [nPage]="responseFromServer?.number + 1" [nTotalPages]="responseFromServer?.totalPages"
+              (eePage)="setPage($event)"></app-pagination-unrouted>
+        </div>
+        <div class="d-flex justify-content-end mb-2 ">
+          <button class="btn btn-success" (click)="generateProducto()">Generar</button>
+        </div>
+        <div class="col-md text-start">
+          <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
+          <button class="btn btn-outline-danger" *ngIf="id_tipoProductoFilter!=0" (click)="setFilterByTipoProducto(0)">
+            <i class="bi bi-x-circle"></i> Reiniciar tipoproducto {{id_tipoProductoFilter}} filter</button>
+        </div>
+        <div class="col-md text-end">
+          <h5 class="text-muted">Total de registros en la consulta {{responseFromServer?.totalElements}}</h5>
+        </div>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th (click)="setOrder('id')">ID
+                <span *ngIf="sortField=='id'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='id'&&sortDirection=='desc'">🔽</span>
+              </th>
+              <th (click)="setOrder('precio')">Precio
+                <span *ngIf="sortField=='nombre'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='nombre'&&sortDirection=='desc'">🔽</span>
+              </th>
+              <th (click)="setOrder('modelo')">Modelo
+                <span *ngIf="sortField=='modelo'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='modelo'&&sortDirection=='desc'">🔽</span>
+              </th>
+              <th (click)="setOrder('talla')">Talla
+                <span *ngIf="sortField=='talla'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='talla'&&sortDirection=='desc'">🔽</span>
+              </th>
+              <th (click)="setOrder('colores')">Colores
+                <span *ngIf="sortField=='colores'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='colores'&&sortDirection=='desc'">🔽</span>
+              </th>
+              <th (click)="setOrder('genero')">Género
+                <span *ngIf="sortField=='genero'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='genero'&&sortDirection=='desc'">🔽</span>
+              </th>
+              <th (click)="setOrder('tipoproducto')">Tipo de Producto
+                <span *ngIf="sortField=='tipoproducto'&&sortDirection=='asc'">🔼</span>
+                <span *ngIf="sortField=='tipoproducto'&&sortDirection=='desc'">🔽</span>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let producto of responseFromServer?.content">
+              <td>{{producto.id}} </td>
+              <td>{{producto.precio}}</td>
+              <td>{{producto.modelo}}</td>
+              <td>{{producto.talla}}</td>
+              <td>{{producto.colores}}</td>
+              <td>{{producto.genero}}</td>
+              <td>{{producto.tipoProducto}}</td>
+              <td (click)="setFilterByTipoProducto(producto.tipoProducto.id)"></td>
+              <td>
+                <div class="btn-group "  role="group" aria-label="Herramientas">
+                  <button class="btn btn-sm btn-info" [routerLink]="['/admin/producto/view',producto.id]">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                  <button class="btn btn-sm btn-secondary" [routerLink]="['/admin/producto/edit',producto.id]">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-sm btn-danger" [routerLink]="['/admin/producto/remove',producto.id]">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
