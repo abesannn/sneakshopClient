@@ -3,7 +3,7 @@ import { FormControl } from "@angular/forms";
 
 export interface ITipoproducto {
     id: number;
-    nombre: string;
+    modelo: string;
     productos: number;
 }
 

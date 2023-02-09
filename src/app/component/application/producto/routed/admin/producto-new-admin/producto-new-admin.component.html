@@ -1,1 +1,212 @@
-<p>producto-new-admin works!</p>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center mb-5">Alta de Producto</h1>
+  
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+  
+          <div class="mb-3 row">
+            <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" id="inputID" formControlID="id" readonly>
+            </div>
+          </div>
+  
+   
+  
+          <div class="mb-3 row">
+            <label for="inputPrecio" class="col-sm-2 col-form-label">Precio</label>
+            <div class="col-sm-4 has-validation">
+              <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.precio?.dirty && !oForm.controls.precio.errors?.['required'] &&
+                oForm.controls.precio?.dirty && !oForm.controls.precio.errors?.['minlength'] 
+                  && oForm.controls.precio?.dirty && !oForm.controls.precio.errors?.['maxlength'],
+                  'is-invalid' :  oForm.controls.precio?.dirty &&  oForm.controls.precio.errors?.['minlength'] 
+                  ||  oForm.controls.precio?.dirty &&  oForm.controls.precio.errors?.['maxlength'] ||
+                  oForm.controls.precio?.dirty &&  oForm.controls.precio.errors?.['required']}" id="inputprecio"
+                  formControlName="precio">
+                <div id="inputPrecioFeedback" class="invalid-feedback"
+                  *ngIf="oForm.controls.precio?.dirty &&  oForm.controls.precio.errors?.['minlength']">
+                  El apellido debe tener al menos 5 caracteres.
+                </div>  
+                <div id="inputPrecioFeedback" class="invalid-feedback"
+                *ngIf="oForm.controls.precio?.dirty &&  oForm.controls.precio.errors?.['maxlength']">
+                La longitud máxima es de 10 caracteres.
+              </div>
+              <div id="inputPrecioFeedback" class="invalid-feedback"
+                *ngIf="oForm.controls.precio?.dirty &&  oForm.controls.precio.errors?.['required']">
+                El campo es obligatorio.
+          </div>
+        </div>
+      </div>
+  
+  
+          <div class="mb-3 row">
+            <label for="inputModelo" class="col-sm-2 col-form-label">Modelo</label>
+            <div class="col-sm-4 has-validation">
+              <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.modelo?.dirty && !oForm.controls.modelo.errors?.['required'] &&
+                oForm.controls.modelo?.dirty && !oForm.controls.modelo.errors?.['minlength'] 
+                  && oForm.controls.modelo?.dirty && !oForm.controls.modelo.errors?.['maxlength'],
+                  'is-invalid' :  oForm.controls.modelo?.dirty &&  oForm.controls.modelo.errors?.['minlength'] 
+                  ||  oForm.controls.modelo?.dirty &&  oForm.controls.modelo.errors?.['maxlength'] ||
+                  oForm.controls.modelo?.dirty &&  oForm.controls.modelo.errors?.['required']}" id="inputmodelo"
+                  formControlName="modelo">
+                <div id="inputModeloFeedback" class="invalid-feedback"
+                  *ngIf="oForm.controls.modelo?.dirty &&  oForm.controls.modelo.errors?.['minlength']">
+                  El apellido debe tener al menos 5 caracteres.
+                </div>  
+                <div id="inputModeloFeedback" class="invalid-feedback"
+                *ngIf="oForm.controls.modelo?.dirty &&  oForm.controls.modelo.errors?.['maxlength']">
+                La longitud máxima es de 10 caracteres.
+              </div>
+              <div id="inputModeloFeedback" class="invalid-feedback"
+                *ngIf="oForm.controls.modelo?.dirty &&  oForm.controls.modelo.errors?.['required']">
+                El campo es obligatorio.
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="mb-3 row">
+        <label for="inputTalla" class="col-sm-2 col-form-label">Talla</label>
+        <div class="col-sm-4 has-validation">
+          <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.talla?.dirty && !oForm.controls.talla.errors?.['required'] &&
+            oForm.controls.talla?.dirty && !oForm.controls.talla.errors?.['minlength'] 
+              && oForm.controls.talla?.dirty && !oForm.controls.talla.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.talla?.dirty &&  oForm.controls.talla.errors?.['minlength'] 
+              ||  oForm.controls.talla?.dirty &&  oForm.controls.talla.errors?.['maxlength'] ||  
+              oForm.controls.talla?.dirty &&  oForm.controls.talla.errors?.['required']}" id="talla"
+            formControlName="talla">
+          <div id="inputTallaFeedback" class="invalid-feedback"
+            *ngIf="oForm.controls.talla?.dirty &&  oForm.controls.talla.errors?.['minlength']">
+            La longitud mínima es de 5 caracteres.
+          </div>
+          <div id="inputTallaFeedback" class="invalid-feedback"
+            *ngIf="oForm.controls.talla?.dirty &&  oForm.controls.talla.errors?.['maxlength']">
+            La longitud máxima es de 10 caracteres.
+          </div>
+          <div id="inputTallaFeedback" class="invalid-feedback"
+            *ngIf="oForm.controls.talla?.dirty &&  oForm.controls.talla.errors?.['required']">
+            El campo es obligatorio.
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="mb-3 row">
+        <label for="inputColores" class="col-sm-2 col-form-label">Colores</label>
+        <div class="col-sm-4 has-validation">
+          <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.colores?.dirty && !oForm.controls.colores.errors?.['required'] &&
+            oForm.controls.colores?.dirty && !oForm.controls.colores.errors?.['pattern'],
+              'is-invalid' :  oForm.controls.colores?.dirty &&  oForm.controls.colores.errors?.['pattern'] ||
+              oForm.controls.colores?.dirty &&  oForm.controls.colores.errors?.['required']}" id="inputColores"
+            formControlName="colores">
+          <div id="inputColoresFeedback" class="invalid-feedback"
+            *ngIf="oForm.controls.colores?.dirty &&  oForm.controls.colores.errors?.['pattern']">
+            El formato no es adecuado
+          </div>
+          <div id="inputColoresFeedback" class="invalid-feedback"
+            *ngIf="oForm.controls.colores?.dirty &&  oForm.controls.colores.errors?.['required']">
+            El campo es obligatorio.
+          </div>
+        </div>
+      </div>
+  
+      <div class="mb-3 row">
+        <label for="inputGenero" class="col-sm-2 col-form-label">Género</label>
+        <div class="col-sm-4 has-validation">
+          <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.genero?.dirty && !oForm.controls.genero.errors?.['required'] &&
+            oForm.controls.genero?.dirty && !oForm.controls.genero.errors?.['minlength'] 
+              && oForm.controls.genero?.dirty && !oForm.controls.genero.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.genero?.dirty &&  oForm.controls.genero.errors?.['minlength'] 
+              ||  oForm.controls.genero?.dirty &&  oForm.controls.genero.errors?.['maxlength'] ||  
+              oForm.controls.genero?.dirty &&  oForm.controls.genero.errors?.['required']}" id="inputgenero"
+            formControlName="genero">
+          <div id="inputGeneroFeedback" class="invalid-feedback"
+            *ngIf="oForm.controls.genero?.dirty &&  oForm.controls.genero.errors?.['minlength']">
+            La longitud mínima es de 5 caracteres.
+          </div>
+          <div id="inputGeneroFeedback" class="invalid-feedback"
+            *ngIf="oForm.controls.genero?.dirty &&  oForm.controls.genero.errors?.['maxlength']">
+            La longitud máxima es de 10 caracteres.
+          </div>
+          <div id="inputGeneroFeedback" class="invalid-feedback"
+            *ngIf="oForm.controls.genero?.dirty &&  oForm.controls.genero.errors?.['required']">
+            El campo es obligatorio.
+          </div>
+  </div>
+          <div class="mb-3 row">
+            <label for="inputTipoproducto" class="col-sm-2 col-form-label">Tipoproducto</label>
+            <div class="col-sm-6 has-validation">
+              <div class="input-group">
+                <span class="input-group-text">{{tipoproductoDescription}}</span>
+                <input type="text" class="form-control" formControlName="id_tipoproducto"
+                  (keyup)="updateTipoproductoDescription(oForm.controls.id_tipoproducto.value)" [ngClass]="{'is-valid' :
+                  oForm.controls.id_tipoproducto?.dirty && !oForm.controls.id_tipoproducto.errors?.['required'] &&
+                   !oForm.controls.id_tipoproducto.errors?.['pattern'] && !oForm.controls.id_tipoproducto.errors?.['incorrect'],
+                    'is-invalid' :  (oForm.controls.id_tipoproducto?.dirty &&  oForm.controls.id_tipoproducto.errors?.['required'] )
+                    ||
+                    ( oForm.controls.id_tipoproducto?.dirty &&  oForm.controls.id_tipoproducto.errors?.['incorrect'])
+                  }">
+                <button type="button" class="btn btn-primary" (click)="openModalFindTipoproducto()">Buscar</button>
+              </div>
+              <div class="text-danger"
+                *ngIf="oForm.controls.id_tipoproducto?.dirty &&  oForm.controls.id_tipoproducto.errors?.['required']">
+                El campo es obligatorio.
+              </div>
+              <div class="text-danger"
+                *ngIf="oForm.controls.id_tipoproducto?.dirty &&  oForm.controls.id_tipoproducto.errors?.['pattern']">
+                El campo ha de ser un entrero de máximo 6 dígitos.
+              </div>
+            </div>
+          </div>
+          
+  
+          <button type="submit" class="btn btn-primary"
+          [disabled]="!oForm?.dirty || (oForm.invalid && oForm?.dirty)">Guardar</button>
+  
+  
+      </div>
+    </form>
+    </div>
+  </div>
+  
+  
+          <div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+  
+                  {{modalContent}}
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="findTipoproducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  
+          <app-tipoproducto-finder (closeEvent)="closeTiporoductoModal($event)"></app-tipoproducto-finder>
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

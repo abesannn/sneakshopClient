@@ -12,7 +12,7 @@ export interface IProducto {
     talla: string;
     colores: string;
     genero: string;
-    tipoProducto: ITipoproducto;
+    tipoproducto: ITipoproducto;
 }
 
 export interface IProducto2Form {

@@ -47,6 +47,7 @@ import { ProductoPlistAdminComponent } from './component/application/producto/ro
 import { ProductoRemoveAdminComponent } from './component/application/producto/routed/admin/producto-remove-admin/producto-remove-admin.component';
 import { ProductoViewAdminComponent } from './component/application/producto/routed/admin/producto-view-admin/producto-view-admin.component';
 import { ProductoDetailAdminUnroutedComponent } from './component/application/producto/unrouted/producto-detail-admin-unrouted/producto-detail-admin-unrouted.component';
+import { TipoproductoFinderComponent } from './component/application/tipoproducto/unrouted/tipoproducto-finder/tipoproducto-finder.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,8 @@ import { ProductoDetailAdminUnroutedComponent } from './component/application/pr
     ProductoRemoveAdminComponent,
     ProductoViewAdminComponent,
     ProductoDetailAdminUnroutedComponent,
+    TipoproductoFinderComponent,
+    
 
 
   ],
@@ -96,7 +99,8 @@ import { ProductoDetailAdminUnroutedComponent } from './component/application/pr
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
 
   ],
   providers: [
