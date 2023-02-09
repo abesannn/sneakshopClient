@@ -28,7 +28,6 @@ export interface IProducto2Form {
 }
 export interface IProducto2Send {
     id: number;
-    nombre: string;
     precio: string;
     modelo: string;
     talla: string;

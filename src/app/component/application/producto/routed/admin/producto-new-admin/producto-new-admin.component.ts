@@ -56,7 +56,6 @@ export class ProductoNewAdminComponent implements OnInit {
     console.log("onSubmit");
     this.oProducto2Send = {
       id: this.oForm.value.id,
-      nombre: this.oForm.value.nombre,
       precio: this.oForm.value.precio,
       modelo: this.oForm.value.modelo,
       talla: this.oForm.value.talla,
@@ -89,7 +88,7 @@ export class ProductoNewAdminComponent implements OnInit {
   updateTipoproductoDescription(id_tipoproducto: number) {
     this.oTipoproductoService.getOne(this.id_tipoproducto).subscribe({
       next: (data: ITipoproducto) => {
-        this.tipoproductoDescription = data.modelo;
+        this.tipoproductoDescription = data.nombre;
       },
       error: (error: any) => {
         this.tipoproductoDescription = "Tipoproducto no encontrado";

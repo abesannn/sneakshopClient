@@ -1,1 +1,44 @@
-<p>tipoproducto-finder works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mb-5">Listado de Tipo Producto</h1>
+            <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
+                <app-search-unrouted [placeHolder]="'Buscar tipoproducto'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+                <app-dropdown-register-page class="mx-2" [PageSize]="this.getPageRegister()" (eeRpp)="this.setRpp($event)">
+                </app-dropdown-register-page>
+        </div>
+        <div class="col-md text-center">
+            <app-pagination-unrouted [nPage]="getPageNumber() + 1" [nTotalPages]="this.getPagesCount()"
+                (eePage)="setPage($event)"></app-pagination-unrouted>
+        </div>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th (click)="setOrder('id')">ID
+
+                    </th>
+                    <th (click)="setOrder('nombre')">Nombre
+                    </th>
+                <th>Productos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tipoproducto of this.getPlistContent()">
+                    <td>{{tipoproducto.id}}</td>
+                    <td>{{tipoproducto.nombre}}</td>
+                    <td>{{tipoproducto.productos}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Herramientas">
+                            <button class="btn btn-sm btn-primary" (click)="selectionTipoproducto(tipoproducto.id)">
+                              Seleccionar
+                            </button>
+                             </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+                

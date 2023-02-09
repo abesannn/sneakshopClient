@@ -65,7 +65,7 @@
               <td>{{producto.talla}}</td>
               <td>{{producto.colores}}</td>
               <td>{{producto.genero}}</td>
-              <td (click)="setFilterByTipoProducto(producto.tipoproducto.id)">{{producto.tipoproducto.id}} - {{producto.tipoproducto.nombre}}</td>
+              <td (click)="setFilterByTipoProducto(producto.tipoproducto.id)">{{producto.tipoproducto.id}}- {{producto.tipoproducto.nombre}}</td>
               <td>
                 <div class="btn-group "  role="group" aria-label="Herramientas">
                   <button class="btn btn-sm btn-info" [routerLink]="['/admin/producto/view',producto.id]">

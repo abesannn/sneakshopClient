@@ -20,6 +20,7 @@ import { TipoproductoRemoveAdminComponent } from './component/application/tipopr
 import { TipoproductoViewAdminComponent } from './component/application/tipoproducto/routed/admin/tipoproducto-view-admin/tipoproducto-view-admin.component';
 import { ProductoPlistAdminComponent } from './component/application/producto/routed/admin/producto-plist-admin/producto-plist-admin.component';
 import { ProductoNewAdminComponent } from './component/application/producto/routed/admin/producto-new-admin/producto-new-admin.component';
+import { ProductoEditAdminComponent } from './component/application/producto/routed/admin/producto-edit-admin/producto-edit-admin.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -42,7 +43,7 @@ const routes: Routes = [
   { path: 'admin/tipoproducto/edit/:id', component: TipoproductoEditAdminComponent, title: 'Editar tipo de producto'},
   { path: 'admin/producto/plist', component: ProductoPlistAdminComponent, title: 'Plist productos'},
   { path: 'admin/producto/new', component: ProductoNewAdminComponent, title: 'Nuevo producto'},
-  
+  { path: 'admin/producto/edit/:id', component: ProductoEditAdminComponent, title: 'Editar producto'},
 ];
 
 @NgModule({
