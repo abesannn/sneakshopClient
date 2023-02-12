@@ -4,8 +4,8 @@ import { IPage } from 'src/app/model/generic';
 import { SessionService } from 'src/app/service/session.service';
 import { Router } from '@angular/router';
 
-import { IUsuario } from 'src/app/model/usuario-interface';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { IUsuario } from 'src/app/model/usuario-interface';
 
 @Component({
   selector: 'app-usuario-plist-admin',
@@ -30,10 +30,12 @@ export class UsuarioPlistAdminComponent implements OnInit {
 
     ) {
       oAuthService.checkSession().subscribe({
-        next: (data: any) => {},
+        next: (data: any) => {
+          this.getPage();
+        },
         error: (error: any) => {
           this.oRouter.navigate(['/login']);
-        },
+        }
       });
 
   }

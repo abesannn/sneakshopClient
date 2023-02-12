@@ -86,9 +86,10 @@ export class ProductoNewAdminComponent implements OnInit {
   }
 
   updateTipoproductoDescription(id_tipoproducto: number) {
-    this.oTipoproductoService.getOne(this.id_tipoproducto).subscribe({
+    this.oTipoproductoService.getOne(id_tipoproducto).subscribe({
       next: (data: ITipoproducto) => {
         this.tipoproductoDescription = data.nombre;
+        this.id_tipoproducto = data.id;
       },
       error: (error: any) => {
         this.tipoproductoDescription = "Tipoproducto no encontrado";

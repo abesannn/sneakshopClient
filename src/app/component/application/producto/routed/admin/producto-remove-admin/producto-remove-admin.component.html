@@ -1,1 +1,24 @@
-<p>producto-remove-admin works!</p>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mb-5">Borrar Producto</h1>
+            <app-producto-detail-admin-unrouted [id]="id"></app-producto-detail-admin-unrouted>
+            <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
+                <div class="col-md-5 control-group text-center">
+                    <div class="alert alert-danger my-3" role="alert">
+                        <h3>¿Está seguro de que desea eliminar el producto?</h3>
+                        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center my-4">
+                          <a class="btn btn-danger mx-2" (click)="oLocation.back()">
+                            NO </a>
+                      <a class="btn btn-success mx-2" (click)="removeOne()" (click)="oLocation.back()">
+                            SÍ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

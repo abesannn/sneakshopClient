@@ -1,11 +1,16 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
+
 <div class="container">
 
     <div class="row justify-content-center">
 
         <div class="col-md-5 text-center">
-            <div class="bg-light mt-5 p-5">
+            <div class="bg mt-5 p-5" id="cuadrado-login">
                 <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="row g-3">
-                    <h4><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>Entrada al Sistema</h4>
+                    <h4>LOGIN</h4>
                     <div class="col-12 text-start">
                         <label for="username" class="form-label">Nombre</label>
                         <div class="input-group has-validation">
@@ -34,17 +39,13 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="control-group text-center mt-3">
-                            <button type="submit" class="btn btn-primary"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>
-                                Acceder</button>
-                        </div>
-                    </div>
+    
                     <div class="col-12">
                         <div class="control-group text-center mt-3">
-                            <button class="btn btn-danger m-2" (click)="loginAdmin()"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>Admin</button>
-                            <button class="btn btn-success m-2" (click)="loginUser()"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>Usuario</button>
+                            <button class="btn btn-danger m-2" (click)="loginAdmin()">Admin</button>
+                            <button class="btn btn-success m-2" (click)="loginUser()">Usuario</button>
                         </div>
                     </div>
-                </form>
+               
 
             </div>

@@ -30,7 +30,7 @@ export class UsuarioEditAdminComponent implements OnInit {
 
   // Foraneas
   tipousuarioDescription: string = '';
-  tipoUsuarioID: number = 0;
+  tipousuarioID: number = 0;
   find = true;
 
   constructor(
@@ -86,9 +86,11 @@ export class UsuarioEditAdminComponent implements OnInit {
         [Validators.required],
       ],
     });
+
     oAuthService.reload();
     oAuthService.checkSession().subscribe({
-      next: (data: any) => {},
+      next: (data: any) => {      
+      },
       error: (error: any) => {
         this.oRouter.navigate(['/login']);
       },
@@ -170,7 +172,7 @@ export class UsuarioEditAdminComponent implements OnInit {
       login: this.oForm.value.login,
       password: this.oForm.value.password,
       email: this.oForm.value.email,
-      tipousuario: {id: this.oForm.value.id_tipousuario},
+      tipoUsuario: {id: this.oForm.value.id_tipousuario},
     };
 
     if (this.oForm.valid) {
@@ -200,7 +202,7 @@ export class UsuarioEditAdminComponent implements OnInit {
     this.oTipoUsuarioService.getOne(id_tipousuario).subscribe({
       next: (data: ITipousuario) => {
         this.tipousuarioDescription = data.nombre;
-        this.tipoUsuarioID = data.id;
+        this.tipousuarioID = data.id;
         this.find = false;
       },
       error: (error: any) => {

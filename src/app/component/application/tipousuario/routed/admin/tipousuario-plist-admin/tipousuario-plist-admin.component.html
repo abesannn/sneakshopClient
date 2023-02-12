@@ -1,9 +1,12 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5 text-decoration-underline">Listado de TipoUsuario</h1>
+      <h1 class="text-center mb-5 text-decoration-underline">Listado de Tipo Usuario</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
-        <a [routerLink]="['/admin/tipousuario/new']" class="btn btn-success mx-3">Añadir TipoUsuario</a>
+        <a [routerLink]="['/admin/tipousuario/new']" class="btn btn-success mx-3">Añadir Tipo Usuario</a>
         <app-search-unrouted [placeHolder]="'Buscar'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer?.numberOfElements"
         (eeRpp)="this.setRpp($event)">

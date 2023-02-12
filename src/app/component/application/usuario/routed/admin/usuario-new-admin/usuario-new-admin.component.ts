@@ -80,7 +80,7 @@ export class UsuarioNewAdminComponent implements OnInit {
       email: this.oForm.value.email,
       login: this.oForm.value.login,
       password: this.oForm.value.password,
-      tipousuario: { id: 2 }
+      tipoUsuario: { id: 2 }
     }
     if (this.oForm.valid) {
       this.oUsuarioService.newOne(this.oUsuario2Send).subscribe({
@@ -107,9 +107,10 @@ showModal = (data) => {
 }
 
 updateTipousuarioDescription(id_tipousuario: number) {
-  this.oTipousuarioService.getOne(this.id_tipousuario).subscribe({
+  this.oTipousuarioService.getOne(id_tipousuario).subscribe({
     next: (data: ITipousuario) => {
       this.tipousuarioDescription = data.nombre;
+      this.id_tipousuario = data.id;
     },
     error: (error: any) => {
       this.tipousuarioDescription = "Tipousuario no encontrado";

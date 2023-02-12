@@ -42,7 +42,5 @@ export interface IUsuario2Send {
     login: string;
     password: string;
     email: string;
-    tipousuario: IEntity;
-
-
+    tipoUsuario: IEntity;
 }

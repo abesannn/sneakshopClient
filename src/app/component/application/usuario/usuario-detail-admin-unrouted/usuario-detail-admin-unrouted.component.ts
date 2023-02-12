@@ -14,7 +14,7 @@ export class UsuarioDetailAdminUnroutedComponent implements OnInit {
   oUsuario: IUsuario;
 
     constructor(
-      private oUsuarioService: UsuarioService
+      private oUsuarioService: UsuarioService,
     ) { }
 
     ngOnInit() {
@@ -25,7 +25,7 @@ export class UsuarioDetailAdminUnroutedComponent implements OnInit {
       this.oUsuarioService.getOne(this.id).subscribe({
         next: (data: IUsuario) => {
           this.oUsuario = data;
-          ;
+          console.log(data);
         }
       })
     }

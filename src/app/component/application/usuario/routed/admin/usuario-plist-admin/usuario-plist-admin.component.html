@@ -1,3 +1,7 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+
 <div class="container mt-5">
   <div class="row">
     <div class="col">
@@ -35,11 +39,11 @@
               <span *ngIf="sortField=='nombre'&&sortDirection=='asc'">🔼</span>
               <span *ngIf="sortField=='nombre'&&sortDirection=='desc'">🔽</span>
             </th>
-            <th (click)="setOrder('apellido1')">Apellido1
+            <th (click)="setOrder('apellido1')">Apellido 1
               <span *ngIf="sortField=='apellido1'&&sortDirection=='asc'">🔼</span>
               <span *ngIf="sortField=='apellido1'&&sortDirection=='desc'">🔽</span>
             </th>
-            <th (click)="setOrder('apellido2')">Apellido2
+            <th (click)="setOrder('apellido2')">Apellido 2
               <span *ngIf="sortField=='apellido2'&&sortDirection=='asc'">🔼</span>
               <span *ngIf="sortField=='apellido2'&&sortDirection=='desc'">🔽</span>
             </th>

@@ -157,6 +157,7 @@ export class ProductoEditAdminComponent implements OnInit {
             [Validators.required],
           ],
         });
+        this.updateTipoproductoDescription(data.tipoproducto.id);
       },
     });
   }
@@ -179,7 +180,7 @@ export class ProductoEditAdminComponent implements OnInit {
         next: (data: number) => {
           this.modalTitle = 'SNEAKSHOP';
           this.modalContent = 'Producto ' + this.id + ' updated';
-          this.oRouter.navigate(['/admin/producto/view', this.id]);
+          this.showModal();
         },
       });
     }
@@ -219,7 +220,7 @@ export class ProductoEditAdminComponent implements OnInit {
   }
 
   openModalFindTipoproducto(): void {
-    this.myModal = new bootstrap.Modal(document.getElementById(this.mimodal), {
+    this.myModal = new bootstrap.Modal(document.getElementById("tipoproductomodal"), {
       //pasar el myModal como parametro
       keyboard: false,
     });
