@@ -23,6 +23,7 @@ import { ProductoNewAdminComponent } from './component/application/producto/rout
 import { ProductoEditAdminComponent } from './component/application/producto/routed/admin/producto-edit-admin/producto-edit-admin.component';
 import { ProductoViewAdminComponent } from './component/application/producto/routed/admin/producto-view-admin/producto-view-admin.component';
 import { ProductoRemoveAdminComponent } from './component/application/producto/routed/admin/producto-remove-admin/producto-remove-admin.component';
+import { ProductoPlistUsuarioComponent } from './component/application/producto/routed/usuario/producto-plist-usuario/producto-plist-usuario.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'admin/producto/edit/:id', component: ProductoEditAdminComponent, title: 'Editar producto'},
   { path: 'admin/producto/view/:id', component: ProductoViewAdminComponent, title: 'View producto'},
   { path: 'admin/producto/remove/:id', component: ProductoRemoveAdminComponent, title: 'Eliminar producto'},
+  { path: 'usuario/producto/plist', component: ProductoPlistUsuarioComponent, title: 'Plist productos'},
 
 ];
 

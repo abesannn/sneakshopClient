@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IUsuarioBean2Form } from 'src/app/model/usuario-interface';
 import { CryptoService } from 'src/app/service/crypto.service';
 import { MetadataService } from 'src/app/service/metadata.service';
-import { SessionService } from 'src/app/service/session.service';
+import { EmitEvent, Events, SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-login',
@@ -45,9 +45,11 @@ ngOnInit(): void { }
 onSubmit() {
   const loginData = { nombre: this.formularioLogin.get('login')!.value, password: this.oCryptoService.getSHA256(this.formularioLogin.get('password')!.value) };
   console.log("login:onSubmit: ", loginData);
+  
   this.oSessionService.login(JSON.stringify(loginData)).subscribe(data => {
     localStorage.setItem("user", JSON.stringify(data.toString()));
     if (data != null) {
+      this.oSessionService.emit(new EmitEvent(Events.login, data));
       this.oRouter.navigate(['/','home']);
     } else {
       localStorage.clear();

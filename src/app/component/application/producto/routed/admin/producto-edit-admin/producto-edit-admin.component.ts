@@ -88,7 +88,6 @@ export class ProductoEditAdminComponent implements OnInit {
         [Validators.required],
       ],
     });
-    oAuthService.reload();
     oAuthService.checkSession().subscribe({
       next: (data: any) => {},
       error: (error: any) => {

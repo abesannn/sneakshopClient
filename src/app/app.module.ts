@@ -50,6 +50,8 @@ import { ProductoViewAdminComponent } from './component/application/producto/rou
 import { ProductoDetailAdminUnroutedComponent } from './component/application/producto/unrouted/producto-detail-admin-unrouted/producto-detail-admin-unrouted.component';
 import { TipoproductoFinderComponent } from './component/application/tipoproducto/unrouted/tipoproducto-finder/tipoproducto-finder.component';
 import { ProductoEditAdminComponent } from './component/application/producto/routed/admin/producto-edit-admin/producto-edit-admin.component';
+import { ProductoPlistUsuarioComponent } from './component/application/producto/routed/usuario/producto-plist-usuario/producto-plist-usuario.component';
+import { SneakerInfoUnroutedComponent } from './component/shared/unrouted/sneaker-info-unrouted/sneaker-info-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +94,9 @@ import { ProductoEditAdminComponent } from './component/application/producto/rou
     ProductoViewAdminComponent,
     ProductoDetailAdminUnroutedComponent,
     TipoproductoFinderComponent,
-    ProductoEditAdminComponent
+    ProductoEditAdminComponent,
+    ProductoPlistUsuarioComponent,
+    SneakerInfoUnroutedComponent
     
     
 

@@ -19,7 +19,6 @@ export class TipousuarioViewAdminComponent implements OnInit {
     private oAuthService: SessionService,
     private oRouter: Router,
   ) {
-    oAuthService.reload();
     oAuthService.checkSession().subscribe({
       next: (data: any) => {
 

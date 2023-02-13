@@ -87,7 +87,6 @@ export class UsuarioEditAdminComponent implements OnInit {
       ],
     });
 
-    oAuthService.reload();
     oAuthService.checkSession().subscribe({
       next: (data: any) => {      
       },

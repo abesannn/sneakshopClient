@@ -45,7 +45,6 @@ export class UsuarioNewAdminComponent implements OnInit {
     private oTipousuarioService: TipousuarioService
   ) {
 
-    oAuthService.reload();
     oAuthService.checkSession().subscribe({
       next: (data:any) => {
 

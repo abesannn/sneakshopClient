@@ -42,7 +42,6 @@ export class TipousuarioEditAdminComponent implements OnInit {
         ],
       ],
     });
-    oAuthService.reload();
     oAuthService.checkSession().subscribe({
       next: (data) => {},
       error: (error) => {

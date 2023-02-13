@@ -32,7 +32,6 @@ export class TipoproductoNewAdminComponent implements OnInit{
     private oFormBuilder: FormBuilder,
     private oAuthService: SessionService
   ) {
-    oAuthService.reload();
     oAuthService.checkSession().subscribe({
       next: (data: any) => {
 

@@ -1,0 +1,46 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<div class="fondo">
+    <div >
+      <div style="max-width: 50%; margin: 0 auto;" class="mt-5">
+      <app-search-unrouted [placeHolder]="'Buscar Sneaker'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+    </div>
+   
+      <div class="wrap" >
+    <!--idea de desplegable con descripcion-by karim-->
+        <div class="producto" *ngFor="let producto of responseFromServer?.content">
+          <div (click)="showModal(producto.id)" class="producto">
+            <div class="container" [routerLink]="['/usuario','producto','view', producto.id]">
+              <img class="producto__foto" src="https://i8.amplience.net/i/jpl/jd_417002_a?qlt=92" alt="imagen" srcset="" style="display:block;">
+              <div class="overlay">
+                <div class="text">PRÓXIMAMENTE</div>
+              </div>
+            </div>
+            <div class="producto__info">
+              <p class="producto__title">{{producto.modelo}}</p>
+              <p class="producto__precio">{{producto.precio}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="showInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Información Adicional</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  
+            <app-sneaker-info-unrouted [id]="selectedId"></app-sneaker-info-unrouted>  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
