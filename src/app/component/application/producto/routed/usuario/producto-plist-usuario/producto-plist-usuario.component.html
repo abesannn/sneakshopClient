@@ -6,13 +6,13 @@
       <div style="max-width: 50%; margin: 0 auto;" class="mt-5">
       <app-search-unrouted [placeHolder]="'Buscar Sneaker'" (onSearch)="setFilter( $event )"></app-search-unrouted>
     </div>
-   
+   <h3> Products </h3>
       <div class="wrap" >
     <!--idea de desplegable con descripcion-by karim-->
         <div class="producto" *ngFor="let producto of responseFromServer?.content">
           <div (click)="showModal(producto.id)" class="producto">
             <div class="container" [routerLink]="['/usuario','producto','view', producto.id]">
-              <img class="producto__foto" src="https://i8.amplience.net/i/jpl/jd_417002_a?qlt=92" alt="imagen" srcset="" style="display:block;">
+              <img class="producto__foto" src="https://i.pinimg.com/736x/bd/8f/39/bd8f394d0c78194b3c5a113f8b235da8.jpg" alt="imagen" srcset="" style="">
               <div class="overlay">
                 <div class="text">PRÓXIMAMENTE</div>
               </div>
@@ -40,6 +40,30 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <h6></h6>
+        </div>
+        <div class="col-md-3">
+            <p>abenitosanchis@gmail.com</p>
+         </div>
+        <div class="col-md-3">
+          <p>098 436 244</p>
+        </div>
+        <div class="col-md-3">
+          <p>Premium Sneakers Soon</p>
+        </div>
+      </div>
+      <hr id="line-footer">
+      <div class="row">
+        <div id="" class="col-md-3 ">
+          <p style="color: #ddd;"> &copy; </p>
         </div>
       </div>
     </div>

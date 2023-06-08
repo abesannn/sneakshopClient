@@ -11,7 +11,7 @@
             <app-pagination-unrouted [nPage]="getPageNumber() + 1" [nTotalPages]="this.getPagesCount()"
                 (eePage)="setPage($event)"></app-pagination-unrouted>
         </div>
-        <table class="table table-bordered table-striped table-hover">
+        <table class="table table">
             <thead>
                 <tr>
                     <th (click)="setOrder('id')">ID

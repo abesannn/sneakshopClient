@@ -96,7 +96,8 @@ import { SneakerInfoUnroutedComponent } from './component/shared/unrouted/sneake
     TipoproductoFinderComponent,
     ProductoEditAdminComponent,
     ProductoPlistUsuarioComponent,
-    SneakerInfoUnroutedComponent
+    SneakerInfoUnroutedComponent,
+
     
     
 

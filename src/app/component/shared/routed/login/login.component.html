@@ -11,6 +11,7 @@
             <div class="bg mt-5 p-5" id="cuadrado-login">
                 <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="row g-3">
                     <h4>LOGIN</h4>
+                    <h3> Welcome to Sneakshop!</h3>
                     <div class="col-12 text-start">
                         <label for="username" class="form-label">Nombre</label>
                         <div class="input-group has-validation">
@@ -40,10 +41,10 @@
                     </div>
                     <div class="col-12">
     
-                    <div class="col-12">
+                    <div class="footer">
                         <div class="control-group text-center mt-3">
                             <button class="btn btn-danger m-2" (click)="loginAdmin()">Admin</button>
-                            <button class="btn btn-success m-2" (click)="loginUser()">Usuario</button>
+                            <button class="btn btn-success m-2" (click)="loginUser()">Usuario</button>                         
                         </div>
                     </div>
                

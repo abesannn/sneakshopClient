@@ -25,6 +25,7 @@ import { ProductoViewAdminComponent } from './component/application/producto/rou
 import { ProductoRemoveAdminComponent } from './component/application/producto/routed/admin/producto-remove-admin/producto-remove-admin.component';
 import { ProductoPlistUsuarioComponent } from './component/application/producto/routed/usuario/producto-plist-usuario/producto-plist-usuario.component';
 
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent, title: 'Login'},
@@ -50,7 +51,6 @@ const routes: Routes = [
   { path: 'admin/producto/view/:id', component: ProductoViewAdminComponent, title: 'View producto'},
   { path: 'admin/producto/remove/:id', component: ProductoRemoveAdminComponent, title: 'Eliminar producto'},
   { path: 'usuario/producto/plist', component: ProductoPlistUsuarioComponent, title: 'Plist productos'},
-
 ];
 
 @NgModule({

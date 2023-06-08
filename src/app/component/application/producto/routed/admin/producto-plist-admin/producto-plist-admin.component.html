@@ -1,5 +1,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 
 <div class="container mt-5">
     <div class="row">
@@ -27,7 +28,7 @@
         <div class="col-md text-end">
           <h5 class="text-muted">Total de registros en la consulta {{responseFromServer?.totalElements}}</h5>
         </div>
-        <table class="table table-bordered table-striped">
+        <table class="table">
           <thead>
             <tr>
               <th (click)="setOrder('id')">ID
@@ -72,13 +73,13 @@
               <td>
                 <div class="btn-group "  role="group" aria-label="Herramientas">
                   <button class="btn btn-sm btn-info" [routerLink]="['/admin/producto/view',producto.id]">
-                    <i class="bi bi-eye-fill"></i>
+                    <i class="fa fa-eye" aria-hidden="true"></i>
                   </button>
                   <button class="btn btn-sm btn-secondary" [routerLink]="['/admin/producto/edit',producto.id]">
-                    <i class="bi bi-pencil-fill"></i>
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
                   </button>
                   <button class="btn btn-sm btn-danger" [routerLink]="['/admin/producto/remove',producto.id]">
-                    <i class="bi bi-trash-fill"></i>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
                 </div>
               </td>

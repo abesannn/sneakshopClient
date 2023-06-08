@@ -60,7 +60,7 @@ onSubmit() {
 
 loginAdmin() {
   this.formularioLogin.setValue({
-    login: "Carla",
+    login: "Jose",
     password: "49876"
   })
 }
